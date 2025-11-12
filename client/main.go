@@ -19,9 +19,12 @@ func main() {
 
 	client := pb.NewGreetServiceClient(conn)
 
-	// names := &pb.NamesList{
-	// 	Name: []string{"Karthik", "Bhanu", "Chetan", "Bhargav", "Sravan", "Imran"},
-	// }
+	names := &pb.NamesList{
+		Names: []string{"Karthik", "Bhanu", "Chetan", "Bhargav", "Sravan", "Imran"},
+	}
 
-	callSayHello(client)
+	// callSayHello(client)
+	// callSayHelloServerStream(client, names)
+	callSayHelloClientStream(client, names)
+	// callHelloBidirectionalStream(client, names)
 }
